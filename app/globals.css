@@ -1,0 +1,2 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+@layer base{html{scroll-behavior:smooth}body{@apply bg-slate-50;background-image:radial-gradient(60rem 28rem at 90% -5%,#bfdbfe80,transparent),radial-gradient(50rem 26rem at -10% 25%,#a5f3fc55,transparent);background-attachment:fixed}h1,h2,h3{@apply font-display tracking-tight}}
