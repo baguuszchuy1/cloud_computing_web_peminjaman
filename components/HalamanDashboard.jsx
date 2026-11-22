@@ -36,6 +36,6 @@ export default function Dash() {
           <p className={"mt-1.5 text-sm font-semibold " + (t ? "text-rose-600" : "text-blue-700")}>{sisaTxt(l)}{t ? " • denda " + rupiah(dendaHitung(l)) : ""}</p></div></div>; })}</div></>}
     <H2>Pengajuan saya</H2><Tabs v={tab} set={setTab} tabs={[["status", "Status Peminjaman"], ["riwayat", "Riwayat"]]} />
     {show.length ? show.map((l) => <LoanCard key={l.id} l={l} onAct={act} />) : <Empty>Belum ada data di bagian ini.</Empty>}
-    <H2>Pinjam lagi</H2><div className="-mx-4 flex gap-4 overflow-x-auto px-4 pb-2">{items.map((i) => <Link key={i.id} href={"/ajukan?item=" + i.id} className={CARD + " w-44 flex-none !p-2.5 transition"}><ItemImg item={i} className="h-24 rounded-lg" /><p className="mt-2 text-sm font-semibold leading-tight">{i.nama}</p><p className={"text-xs " + (i.stok - i.dipinjam > 0 ? "text-emerald-600" : "text-rose-600")}>{i.stok - i.dipinjam > 0 ? (i.stok - i.dipinjam) + " tersedia" : "Sedang habis"}</p></Link>)}</div>
+    <H2>Pinjam lagi</H2><div className="-mx-4 flex gap-4 overflow-x-auto px-4 pb-2">{items.map((i) => <Link key={i.id} href={"/ajukan?item=" + i.id} className={CARD + " w-44 flex-none !p-2.5 transition"}><ItemImg item={i} className="aspect-square rounded-lg" /><p className="mt-2 text-sm font-semibold leading-tight">{i.nama}</p><p className={"text-xs " + (i.stok - i.dipinjam > 0 ? "text-emerald-600" : "text-rose-600")}>{i.stok - i.dipinjam > 0 ? (i.stok - i.dipinjam) + " tersedia" : "Sedang habis"}</p></Link>)}</div>
   </main>);
 }

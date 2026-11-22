@@ -20,7 +20,7 @@ export default function Home() {
   const pinjam = (i) => r.push(user ? "/ajukan?item=" + i.id : "/login?next=" + encodeURIComponent("/ajukan?item=" + i.id));
   const card = (i) => { const a = av(i), pct = i.stok ? Math.round((a / i.stok) * 100) : 0, L = view === "list"; return (
     <div key={i.id} className={"group animate-up overflow-hidden rounded-2xl border border-white bg-white shadow-[0_8px_30px_rgba(30,64,175,0.07)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(30,64,175,0.15)] " + (L ? "flex flex-col sm:flex-row" : "flex flex-col")}>
-      <div className={"relative overflow-hidden " + (L ? "sm:w-60" : "")}><ItemImg item={i} className={(L ? "h-40 sm:h-full" : "h-44") + " transition duration-500 group-hover:scale-105"} />
+      <div className={"relative overflow-hidden " + (L ? "sm:w-56 sm:flex-none" : "")}><ItemImg item={i} className="aspect-square transition duration-500 group-hover:scale-105" />
         <span className="absolute left-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-xs font-semibold text-slate-700 backdrop-blur">{i.kategori}</span>
         <span className={"absolute right-3 top-3 rounded-full px-2.5 py-1 text-xs font-semibold text-white " + (a > 0 ? "bg-emerald-500" : "bg-rose-500")}>{a > 0 ? "Tersedia" : "Habis"}</span></div>
       <div className="flex flex-1 flex-col gap-3 p-4">

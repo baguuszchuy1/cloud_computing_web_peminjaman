@@ -67,7 +67,7 @@ export default function Admin() {
         <button className={bP}>Tambah</button>
         <label className="flex cursor-pointer items-center gap-2 text-sm text-slate-600 sm:col-span-6"><ImagePlus size={18} />Foto barang (opsional): <input type="file" accept="image/*" onChange={(e) => setFile(e.target.files[0])} className="text-sm" /></label></form>
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{items.map((i) => <div key={i.id} className={CARD + " flex flex-col !p-3"}>
-        <ItemImg item={i} className="h-36 rounded-xl" />
+        <ItemImg item={i} className="aspect-square rounded-xl" />
         <div className="flex-1 p-2"><h3 className="text-lg font-semibold leading-snug">{i.nama}</h3><p className="text-sm text-slate-500">{i.kategori}</p>
           <div className="mt-2 flex flex-wrap gap-2"><span className="rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-semibold text-blue-700">Stok {i.stok}</span><span className="rounded-full bg-amber-50 px-2.5 py-0.5 text-xs font-semibold text-amber-800">Denda {rupiah(i.denda_per_hari)}/hari</span></div></div>
         <div className="grid grid-cols-2 gap-2 p-2 pt-0"><button onClick={() => edit(i, "stok", "Stok baru")} className={bS + sm}>Ubah stok</button><button onClick={() => edit(i, "denda_per_hari", "Denda per hari (Rp)")} className={bS + sm}>Ubah denda</button>

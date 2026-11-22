@@ -45,7 +45,7 @@ export default function Ajukan() {
         <section className={CARD}><h2 className="mb-3 text-lg font-semibold">1. Pilih barang</h2>
           <div className="grid max-h-72 grid-cols-2 gap-3 overflow-y-auto p-1 sm:grid-cols-3">
             {items.map((i) => <button type="button" key={i.id} onClick={() => setF({ ...f, item_id: String(i.id) })} className={"overflow-hidden rounded-xl border-2 text-left transition " + (String(i.id) === String(f.item_id) ? "border-blue-600 ring-4 ring-blue-100" : "border-slate-200 hover:border-blue-300")}>
-              <ItemImg item={i} className="h-20" /><div className="p-2.5"><p className="text-sm font-semibold leading-tight">{i.nama}</p><p className="text-xs text-slate-500">Stok {i.stok}</p></div></button>)}</div></section>
+              <ItemImg item={i} className="aspect-square" /><div className="p-2.5"><p className="text-sm font-semibold leading-tight">{i.nama}</p><p className="text-xs text-slate-500">Stok {i.stok}</p></div></button>)}</div></section>
         <section className={CARD}><h2 className="mb-3 text-lg font-semibold">2. Atur waktu dan jumlah</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             <div><label className={lbl}>Mulai pinjam</label><div className="flex gap-2"><input type="date" className={IN} value={f.d1} onChange={set("d1")} /><input type="time" className={IN + " !w-32"} value={f.t1} onChange={set("t1")} /></div></div>
@@ -57,7 +57,7 @@ export default function Ajukan() {
           <textarea rows="3" className={IN} value={f.tujuan} onChange={set("tujuan")} placeholder="Contoh: seminar proposal, kegiatan himpunan, rapat angkatan" /></section>
       </div>
       <aside className={CARD + " space-y-4 lg:sticky lg:top-24"}>
-        {it && <><ItemImg item={it} className="h-36 rounded-xl" /><h3 className="text-lg font-semibold">{it.nama}</h3></>}
+        {it && <><ItemImg item={it} className="aspect-square rounded-xl" /><h3 className="text-lg font-semibold">{it.nama}</h3></>}
         <dl className="space-y-2 text-sm"><div className="flex justify-between"><dt className="text-slate-500">Mulai</dt><dd className="font-semibold">{ok ? fdt(a) : "-"}</dd></div><div className="flex justify-between"><dt className="text-slate-500">Kembali</dt><dd className="font-semibold">{ok ? fdt(b) : "-"}</dd></div><div className="flex justify-between"><dt className="text-slate-500">Durasi</dt><dd className="font-semibold">{ok ? durasi(a, b) : "-"}</dd></div><div className="flex justify-between"><dt className="text-slate-500">Jumlah</dt><dd className="font-semibold">{q} unit</dd></div></dl>
         {!ok && <p className="flex gap-2 rounded-xl bg-amber-50 p-3 text-sm font-medium text-amber-800"><Clock3 size={18} className="flex-none" />Waktu kembali harus setelah waktu pinjam.</p>}
         {cek && !dobel && !kurang && <p className="flex gap-2 rounded-xl bg-emerald-50 p-3 text-sm font-medium text-emerald-800"><CheckCircle2 size={18} className="flex-none" />Tersedia: {cek.sisa} unit pada waktu ini.</p>}
